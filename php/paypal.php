@@ -51,6 +51,17 @@ class paypal{
 
     }
 
+    function insert_data($array){
+
+
+        global $wpdb;
+$table = $wpdb->prefix.'paypal';
+
+$format = array('%s','%s');
+$wpdb->insert($table,$array,$format);
+  
+    }
+
 }
 
 ?>
