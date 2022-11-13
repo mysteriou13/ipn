@@ -1,22 +1,29 @@
 <?php 
 
-require_once(dirname(__FILE__)."/php/paypal.php");
+$value = "8.00";
 
-$pay = new \ipn\paypal();
+$number = "5";
 
-global $wpdb;
+$item_name = "test";
 
-$table = $wpdb->prefix.'paypal';
-
-$data = array('item_name' => 'data one', 
-'item_number' => "ff", 
-"payment_status" => "eee", 
-"payment_amount" => "textpayment_amount",
-"payment_currency" => 'testpayment_currency',
- "txn_id" => "txn_id",
- "receiver_email" => "testreceiver_email",
-  "payer_email" => "testemail");
-
-$pay->insert_data($data);
-  
 ?>
+
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+  <input type="hidden" name="cmd" value="_xclick">
+    <input type="hidden" name="business" value="tonymassa-facilitator@free.fr">
+    <input type="hidden" name="item_name" value="<?php echo $item_name;?>">
+    <input type="hidden" name="item_number" value="<?php echo $number;?>">
+    <input type="hidden" name="amount" value="<?php echo $value;?>">
+    <input type="hidden" name="shipping" value="2">
+    <input type="hidden" name="no_note" value="1">
+    <input type="hidden" name="currency_code" value="EUR">
+    <input type="hidden" name="lc" value="AU">
+    <input type="hidden" name="bn" value="PP-BuyNowBF">
+  <input type="hidden" name="hosted_button_id" value="6RNT8A4HBBJRE">
+  <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/btn_buynow_107x26.png" alt="Buy Now">
+  <img alt="" src="https://paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+
+
+     
