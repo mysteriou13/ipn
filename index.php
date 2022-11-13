@@ -1,4 +1,6 @@
 <?php 
+session_start();
+$_SESSION['pseudo'] = "pseudotest";
 
 $value = "8.00";
 
@@ -24,7 +26,7 @@ $email_business = "tonymassa-facilitator@free.fr";
   <input type="hidden" name="hosted_button_id" value="6RNT8A4HBBJRE">
 
    <div>
-
+   n.php
    total <?php echo $value." &nbsp;EUR"?>
     </div>
 
@@ -32,6 +34,3 @@ $email_business = "tonymassa-facilitator@free.fr";
   <img alt="" src="https://paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 </form>
 
-
-
-     
